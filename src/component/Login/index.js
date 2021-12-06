@@ -1,21 +1,26 @@
-import React from 'react'
+import React from "react";
 import axios from "axios";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { log } from "./../../reducers/login";
 
 const Login = () => {
+  const state = useSelector((state) => {
+    return state;
+  });
+  const  dispatch = useDispatch()
   const navigate = useNavigate();
- const BASE_URL = process.env.REACT_APP_BASE_URL;
+  const BASE_URL = process.env.REACT_APP_BASE_URL;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const[check,setCheck]=useState();
+  const [check, setCheck] = useState();
 
-  useEffect(()=>{
-    const token= localStorage.getItem("token")
-    setCheck(token)
-  },[])
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    setCheck(token);
+  }, []);
 
-  
   const login = async () => {
     try {
       const result = await axios.post(`${BASE_URL}/login`, {
@@ -23,19 +28,17 @@ const Login = () => {
         password,
       });
       console.log(result.data.token);
-      localStorage.setItem("token",result.data.token)
+      localStorage.setItem("token", result.data.token);
     } catch (err) {
       console.log(err);
     }
 
-    
-
-    navigate('/tasks')
+    navigate("/tasks");
   };
-    return (
-        <div>
-            <h2>Login Page </h2>
-            <input
+  return (
+    <div>
+      <h2>Login Page </h2>
+      <input
         type="email"
         name="email"
         placeholder="enter email "
@@ -52,8 +55,8 @@ const Login = () => {
         }}
       />
       <button onClick={login}>Login</button>
-        </div>
-    )
-}
+    </div>
+  );
+};
 
-export default Login
+export default Login;

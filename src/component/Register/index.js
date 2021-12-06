@@ -6,8 +6,8 @@ import "./style.css"
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 const Register = () => {
-  const navigate = useNavigate();
   
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("61a48ba866acf4f8462bf345");

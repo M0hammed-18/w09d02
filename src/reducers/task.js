@@ -18,6 +18,28 @@ const Tasks = (state = initiqlState, action) => {
 
           default:
               return state;
-
   }
 };
+
+export default Tasks;
+
+export const readTask=(data)=>{
+    return{
+        type:"READ",
+        payload:data
+    }
+}
+
+export const createTask =(data)=>{
+    return{
+        type:"CREATE",
+        payload:data
+    }
+}
+
+export const deleteTask =(data)=>{
+    return{
+        type:"DELETE",
+        payload:data
+    }
+}
