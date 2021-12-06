@@ -29,3 +29,10 @@ const instialState = {
       payload: data,
     };
   };
+
+  export const logout = (data) => {
+    return {
+      type: "LOGOUT",
+      payload: data, //=>{user:null, token:""}
+    };
+  };
