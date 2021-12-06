@@ -2,6 +2,8 @@ import React from "react";
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router";
+import "./style.css"
+
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 const Register = () => {
   const navigate = useNavigate();
@@ -26,7 +28,8 @@ const Register = () => {
 
   return (
     <>
-      <input
+    <div className="desing">
+      <input 
         type="email"
         name="email"
         placeholder="enter email "
@@ -43,6 +46,7 @@ const Register = () => {
         }}
       />
       <button onClick={singup}>Regester</button>
+      </div>
     </>
   );
 };

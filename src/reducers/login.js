@@ -22,3 +22,10 @@ const instialState = {
   };
   
   export default signIn;
+
+  export const login = (data) => {
+    return {
+      type: "LOGIN",
+      payload: data,
+    };
+  };
